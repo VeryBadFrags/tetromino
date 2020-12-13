@@ -1,6 +1,6 @@
 # Blocks
 
-That tetrimino game.
+That tetromino game.
 
 ## Sources
 
