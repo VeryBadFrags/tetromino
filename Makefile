@@ -1,39 +1,41 @@
-src = src
-assets = assets
-build = build
-dist = dist
-node_deps = package.json node_modules/
+ASSETS = assets
+SRC = src
+
+BUILD = build
+DIST = dist
+
+NODE_DEPS = package.json node_modules/
 
 .PHONY: generate
-generate: ${dist}/index.html ${dist}/style.css ${dist}/main.js
-	@echo 'Generated site into: ${dist}/'
+generate: ${DIST}/index.html ${DIST}/style.css ${DIST}/main.js
+	@echo 'Generated site into: ${DIST}/'
 
-${dist}/index.html: ${build}/index.html ${dist}
-	cp ${build}/index.html ${dist}/
+${DIST}/index.html: ${BUILD}/index.html ${DIST}
+	cp ${BUILD}/index.html ${DIST}/
 
-${dist}/main.js: ${src}/*.js ${dist}
-	cp ${src}/*.js ${dist}
+${DIST}/main.js: ${SRC}/*.js ${DIST}
+	cp ${SRC}/*.js ${DIST}
 
-${dist}/style.css: ${src}/*.scss ${node_deps}
+${DIST}/style.css: ${SRC}/*.scss ${NODE_DEPS}
 	npm run sass
 
-# Inject favicons into ${build}/index.html
-${build}/index.html: ${src}/index.html ${build}/faviconData.json ${node_deps}
+# Inject favicons into ${BUILD}/index.html
+${BUILD}/index.html: ${SRC}/index.html ${BUILD}/faviconData.json ${NODE_DEPS}
 	npm run favicon-inject
 
 # Generate favicons
-${build}/faviconData.json: ${assets}/brick-wall.svg faviconDescription.json ${build} ${node_deps}
+${BUILD}/faviconData.json: ${ASSETS}/brick-wall.svg faviconDescription.json ${BUILD} ${NODE_DEPS}
 	npm run favicon-generate
 
-${build}:
-	mkdir -p ${build}
+${BUILD}:
+	mkdir -p ${BUILD}
 
-${dist}:
-	mkdir -p ${dist}
+${DIST}:
+	mkdir -p ${DIST}
 
 node_modules/:
 	npm install
 
 .PHONY: clean
 clean:
-	rm -rf ${build}/ ${dist}/ ${src}/*.css ${src}/*.css.map
+	rm -rf ${BUILD}/ ${DIST}/ ${SRC}/*.css ${SRC}/*.css.map
