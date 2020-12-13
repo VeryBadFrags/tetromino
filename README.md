@@ -1,6 +1,6 @@
-# Snakeblocks
+# Blocks
 
-A mix of Snake and that tetrimino game.
+That tetrimino game.
 
 ## Sources
 
