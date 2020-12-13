@@ -1,5 +1,6 @@
 .PHONY: generate
 generate: dist/index.html dist/style.css dist/main.js
+	@echo 'Generated site into: dist/'
 
 dist/index.html: build/index.html dist/
 	cp build/index.html dist/
