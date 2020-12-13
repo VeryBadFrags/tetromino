@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #212121;
+  color: #fafafa;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.container {
+  margin: 10px;
+  font-size: 2em;
+}
+
+#game {
+  background: radial-gradient(#263238, #000);
+  border: solid 0.2em #eceff1;
+  height: 90vh;
+  margin-bottom: 1em;
+}
+
+#nextPiece {
+  border: solid 0.1em #eceff1;
+  width: 100%;
+}
+
+.flex {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

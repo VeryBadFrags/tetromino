@@ -1,0 +1,25 @@
+{
+  "name": "blocks",
+  "version": "1.0.0",
+  "scripts": {
+    "favicon-generate": "real-favicon generate faviconDescription.json build/faviconData.json dist",
+    "favicon-inject": "real-favicon inject build/faviconData.json build src/index.html",
+    "favicon-check": "real-favicon check-for-update --fail-on-update build/faviconData.json",
+    "sass": "node-sass --no-source-map src/style.scss dist/style.css --output-style compressed",
+    "test": "npm run favicon-check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VeryBadFrags/blocks.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VeryBadFrags/blocks/issues"
+  },
+  "homepage": "https://github.com/VeryBadFrags/blocks#readme",
+  "dependencies": {
+    "cli-real-favicon": "0.0.8",
+    "node-sass": "^5.0.0"
+  }
+}
