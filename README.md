@@ -2,7 +2,9 @@
 
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 
-That tetromino game.
+A tetromino-based puzzle game made in HTML5 and JS.
+
+[Play it here](https://blocks.verybadfrags.com/)
 
 ## Build
 
