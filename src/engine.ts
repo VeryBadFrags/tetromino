@@ -1,7 +1,9 @@
-const canvas: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById('game');
+import { player } from "./player";
+
+const canvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById('game');
 const context: CanvasRenderingContext2D = canvas.getContext('2d');
 
-const nextPieceCanvas: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById('nextPiece');
+const nextPieceCanvas: HTMLCanvasElement = <HTMLCanvasElement>document.getElementById('nextPiece');
 const nextPieceContext: CanvasRenderingContext2D = nextPieceCanvas.getContext('2d');
 
 const background = '#263238';
@@ -19,31 +21,31 @@ const colors = [
     '#ef5350', // Z red
 ];
 
-export function draw(arena, player, shadow) {
+export function draw(arena: number[][], currPlayer: player, shadow: any) {
     //context.fillStyle = '#263238';
     context.clearRect(0, 0, canvas.width, canvas.height);
 
     drawMatrix(context, arena, { x: 0, y: 0 });
     drawShadow(shadow);
-    drawMatrix(context, player.matrix, player.pos);
+    drawMatrix(context, currPlayer.matrix, currPlayer.pos);
 }
 
-export function drawShadow(shadow) {
+export function drawShadow(shadow: any) {
     drawMatrix(context, shadow.matrix, shadow.pos, true);
 }
 
-export function drawNextPiece(nextPiece) {
+export function drawNextPiece(nextPiece: number[][]) {
     nextPieceContext.clearRect(0, 0, canvas.width, canvas.height);
     drawNextPieceMatrix(nextPieceContext, nextPiece);
 }
 
-export function updateScore(player) {
-    document.getElementById('score').innerText = player.score;
+export function updateScore(currPlayer: player) {
+    document.getElementById('score').innerText = currPlayer.score.toString();
 }
 
 let blockWidth = canvas.height / 20;
 let blockPaddingFactor = 0.9;
-function drawMatrix(ctx, piece, offset, hollow = false) {
+function drawMatrix(ctx: CanvasRenderingContext2D, piece: number[][], offset: any, hollow = false) {
     let paddedBlock = blockWidth * blockPaddingFactor;
 
     piece.forEach((row, y) => {
@@ -62,7 +64,7 @@ function drawMatrix(ctx, piece, offset, hollow = false) {
                     // Remove innermost rectangle
                     ctx.fillStyle = background;
                     let actualSize = paddedBlock * 0.85;
-                    let bOffset = (blockWidth - actualSize)/2;
+                    let bOffset = (blockWidth - actualSize) / 2;
                     ctx.clearRect((x + offset.x) * blockWidth + bOffset, (y + offset.y) * blockWidth + bOffset, actualSize, actualSize);
                 }
             }
@@ -70,14 +72,14 @@ function drawMatrix(ctx, piece, offset, hollow = false) {
     });
 }
 
-function fillRectangle(ctx, x, y, blockSize, actualSize) {
+function fillRectangle(ctx: CanvasRenderingContext2D, x: number, y: number, blockSize: number, actualSize: number) {
     ctx.fillRect(x * blockSize + (blockSize - actualSize) / 2,
         y * blockSize + (blockSize - actualSize) / 2,
         actualSize, actualSize);
 }
 
 let nextPieceOffset = 2;
-function drawNextPieceMatrix(ctx, piece) {
+function drawNextPieceMatrix(ctx: CanvasRenderingContext2D, piece: number[][]) {
     piece.forEach((row, y) => {
         row.forEach((value, x) => {
             if (value !== 0) {

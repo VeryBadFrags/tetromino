@@ -2,7 +2,7 @@ import * as Player from './player.js';
 import * as Game from './game.js';
 import * as Engine from './engine.js';
 
-const player = {
+const player: Player.player = {
     pos: { x: 0, y: 0 },
     matrix: null,
     score: 0,

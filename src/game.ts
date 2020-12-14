@@ -1,8 +1,10 @@
-const pieces: string = "ILJOTSZ";
-let bagOfPieces = [];
+import { player } from "./player";
 
-export function collide(gameArena, matrix) {
-    const [m, o] = [matrix.matrix, matrix.pos];
+const pieces: string = "ILJOTSZ";
+let bagOfPieces: string[] = [];
+
+export function collide(gameArena: number[][], piece: any) {
+    const [m, o] = [piece.matrix, piece.pos];
     for (let y = 0; y < m.length; y++) {
         for (let x = 0; x < m[y].length; x++) {
             if (m[y][x] !== 0
@@ -15,29 +17,29 @@ export function collide(gameArena, matrix) {
     return false;
 }
 
-export function merge(gameArena, currentPlayer) {
-    currentPlayer.matrix.forEach((row, y) => {
+export function merge(gameArena: number[][], currPlayer: player) {
+    currPlayer.matrix.forEach((row, y) => {
         row.forEach((value, x) => {
             if (value !== 0) {
-                gameArena[y + currentPlayer.pos.y][x + currentPlayer.pos.x] = value;
+                gameArena[y + currPlayer.pos.y][x + currPlayer.pos.x] = value;
             }
         });
     });
 }
 
-export let nextPiece;
-export function playerReset(arena, player) {
+export let nextPiece: number[][];
+export function playerReset(arena: number[][], currPlayer: player) {
     if (nextPiece == null) {
         nextPiece = generateNextPiece();
     }
 
-    player.matrix = nextPiece;
-    player.pos.y = 0;
-    player.pos.x = (arena[0].length / 2 | 0) -
-        (player.matrix[0].length / 2 | 0);
-    if (collide(arena, player)) {
+    currPlayer.matrix = nextPiece;
+    currPlayer.pos.y = 0;
+    currPlayer.pos.x = (arena[0].length / 2 | 0) -
+        (currPlayer.matrix[0].length / 2 | 0);
+    if (collide(arena, currPlayer)) {
         arena.forEach(row => row.fill(0));
-        player.score = 0;
+        currPlayer.score = 0;
     }
     nextPiece = generateNextPiece();
     return nextPiece;
@@ -54,7 +56,7 @@ function generateNextPiece() {
     return newPiece;
 }
 
-export function scanArena(arena, player) {
+export function scanArena(arena: number[][], currPlayer: player) {
     let rowCount = 1;
     outer: for (let y = arena.length - 1; y >= 0; y--) {
         for (let x = 0; x < arena[y].length; x++) {
@@ -67,15 +69,15 @@ export function scanArena(arena, player) {
         arena.unshift(row);
         y++;
 
-        player.score += rowCount * 10;
+        currPlayer.score += rowCount * 10;
         rowCount *= 2;
     }
 }
 
-export function generateShadow(arena, player) {
+export function generateShadow(arena: number[][], currPlayer: player) {
     let shadow = {
-        pos: { x: player.pos.x, y: player.pos.y },
-        matrix: player.matrix
+        pos: { x: currPlayer.pos.x, y: currPlayer.pos.y },
+        matrix: currPlayer.matrix
     };
     while (!collide(arena, shadow)) {
         shadow.pos.y++;
@@ -84,7 +86,7 @@ export function generateShadow(arena, player) {
     return shadow;
 }
 
-function createPiece(type) {
+function createPiece(type: string): number[][] {
     if (type === 'T') {
         return [
             [0, 0, 0],
