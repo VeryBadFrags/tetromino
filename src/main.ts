@@ -8,7 +8,7 @@ const player = {
     score: 0,
 }
 
-function createMatrix(w, h) {
+function createMatrix(w: number, h: number) {
     const matrix = [];
     while (h--) {
         matrix.push(new Array(w).fill(0));

@@ -10,21 +10,24 @@ NODE_DEPS = package.json node_modules/
 generate: ${DIST}/index.html ${DIST}/style.css ${DIST}/main.js
 	@echo 'Generated site into: ${DIST}/'
 
-${DIST}/index.html: ${BUILD}/index.html ${DIST}
-	cp ${BUILD}/index.html ${DIST}/
-
-${DIST}/main.js: ${SRC}/*.js ${DIST}
-	cp ${SRC}/*.js ${DIST}
-
-${DIST}/style.css: ${SRC}/*.scss ${NODE_DEPS}
-	npm run sass
+# Minify HTML
+${DIST}/index.html: ${BUILD}/index.html ${NODE_DEPS}
+	npm run html-minifier
 
 # Inject favicons into ${BUILD}/index.html
 ${BUILD}/index.html: ${SRC}/index.html ${BUILD}/faviconData.json ${NODE_DEPS}
 	npm run favicon-inject
 
+# Compile Typescript
+${DIST}/main.js: ${SRC}/*.ts
+	npm run typescript
+
+# Compile SASS
+${DIST}/style.css: ${SRC}/*.scss ${NODE_DEPS}
+	npm run sass
+
 # Generate favicons
-${BUILD}/faviconData.json: ${ASSETS}/brick-wall.svg faviconDescription.json ${BUILD} ${NODE_DEPS}
+${BUILD}/faviconData.json: ${ASSETS}/four-squares.svg faviconDescription.json ${BUILD} ${NODE_DEPS}
 	npm run favicon-generate
 
 ${BUILD}:

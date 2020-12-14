@@ -1,8 +1,8 @@
-const canvas = document.getElementById('game');
-const context = canvas.getContext('2d');
+const canvas: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById('game');
+const context: CanvasRenderingContext2D = canvas.getContext('2d');
 
-const nextPieceCanvas = document.getElementById('nextPiece');
-const nextPieceContext = nextPieceCanvas.getContext('2d');
+const nextPieceCanvas: HTMLCanvasElement = <HTMLCanvasElement> document.getElementById('nextPiece');
+const nextPieceContext: CanvasRenderingContext2D = nextPieceCanvas.getContext('2d');
 
 const background = '#263238';
 

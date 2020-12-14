@@ -1,4 +1,4 @@
-const pieces = 'ILJOTSZ';
+const pieces: string = "ILJOTSZ";
 let bagOfPieces = [];
 
 export function collide(gameArena, matrix) {
