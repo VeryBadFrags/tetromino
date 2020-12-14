@@ -9,6 +9,8 @@ A tetromino-based puzzle game made in HTML5 and Typescript.
 
 ## Build
 
+* Get [Node](https://nodejs.org/)
+* Build with Make
 ```shell
 make
 ```
