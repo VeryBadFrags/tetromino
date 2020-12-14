@@ -27,7 +27,7 @@ ${DIST}/style.css: ${SRC}/*.scss ${NODE_DEPS}
 	npm run sass
 
 # Generate favicons
-${BUILD}/faviconData.json: ${ASSETS}/four-squares.svg faviconDescription.json ${BUILD} ${NODE_DEPS}
+${BUILD}/faviconData.json: ${ASSETS}/four-squares-line.svg faviconDescription.json ${BUILD} ${NODE_DEPS}
 	npm run favicon-generate
 
 ${BUILD}:
@@ -41,4 +41,4 @@ node_modules/:
 
 .PHONY: clean
 clean:
-	rm -rf ${BUILD}/ ${DIST}/ ${SRC}/*.css ${SRC}/*.css.map
+	rm -rf ${BUILD}/ ${DIST}/
