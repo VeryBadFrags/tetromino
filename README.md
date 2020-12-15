@@ -3,12 +3,14 @@
 ![LGTM Grade](https://img.shields.io/lgtm/grade/javascript/github/VeryBadFrags/blocks)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 
-A tetromino-based puzzle game made in HTML5 and JS.
+A tetromino-based puzzle game made in HTML5 and Typescript.
 
 [▶️ Play the game](https://blocks.verybadfrags.com/)
 
 ## Build
 
+* Get [Node](https://nodejs.org/)
+* Build with Make
 ```shell
 make
 ```
