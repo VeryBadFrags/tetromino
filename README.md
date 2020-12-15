@@ -5,7 +5,7 @@
 
 A tetromino-based puzzle game made in HTML5 and JS.
 
-[Play it here](https://blocks.verybadfrags.com/)
+[▶️ Play the game](https://blocks.verybadfrags.com/)
 
 ## Build
 
@@ -15,8 +15,8 @@ make
 
 ## Sources
 
-* Colors by [Material UI](https://www.materialui.co/colors)
-* Favicon by [UXWing](https://uxwing.com/)
+- Colors by [Material UI](https://www.materialui.co/colors)
+- Favicon by [UXWing](https://uxwing.com/)
 
 ## License
 
