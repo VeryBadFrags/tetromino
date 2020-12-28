@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "watch 'make' src",
+    "test": "npm run favicon-check",
     "favicon-generate": "real-favicon generate faviconDescription.json build/faviconData.json dist",
     "favicon-inject": "real-favicon inject build/faviconData.json build src/index.html",
     "favicon-check": "real-favicon check-for-update --fail-on-update build/faviconData.json",
     "html-minifier": "html-minifier --collapse-whitespace --remove-comments --use-short-doctype build/index.html -o dist/index.html",
-    "sass": "node-sass --no-source-map src/style.scss dist/style.css --output-style compressed",
-    "typescript": "tsc",
-    "test": "npm run favicon-check"
+    "sass": "sass src/style.scss:dist/style.css --no-source-map -s compressed",
+    "typescript": "tsc"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
   "dependencies": {
     "cli-real-favicon": "0.0.8",
     "html-minifier": "^4.0.0",
-    "node-sass": "^5.0.0"
+    "sass": "^1.30.0"
   },
   "devDependencies": {
     "watch": "^1.0.2"
