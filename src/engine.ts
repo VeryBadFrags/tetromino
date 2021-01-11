@@ -84,9 +84,12 @@ function drawNextPieceMatrix(ctx: CanvasRenderingContext2D, piece: number[][]) {
         row.forEach((value, x) => {
             if (value !== 0) {
                 let nextPieceBlockWidth = nextPieceCanvas.width / (row.length + nextPieceOffset);
+                let nextPieceBlockHeight = nextPieceCanvas.height / (piece.length + nextPieceOffset);
+                let nextPieceBlockSize = Math.min(nextPieceBlockWidth, nextPieceBlockHeight);
+                
                 ctx.fillStyle = colors[value];
-                ctx.fillRect((x + nextPieceOffset / 2) * nextPieceBlockWidth, (y + nextPieceOffset / 2) * nextPieceBlockWidth,
-                    nextPieceBlockWidth * blockPaddingFactor, nextPieceBlockWidth * blockPaddingFactor);
+                ctx.fillRect((x + nextPieceOffset / 2) * nextPieceBlockSize, (y + nextPieceOffset / 2) * nextPieceBlockSize,
+                nextPieceBlockSize * blockPaddingFactor, nextPieceBlockSize * blockPaddingFactor);
             }
         });
     });

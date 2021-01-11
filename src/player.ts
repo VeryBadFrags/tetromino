@@ -17,12 +17,12 @@ export function move(arena: number[][], currPlayer: player, direction: number) {
 export function playerRotate(arena: number[][], currPlayer: player, direction: number) {
     const initPosition = currPlayer.pos.x;
     let offset = 1;
-    rotate(currPlayer.matrix, direction);
+    currPlayer.matrix = rotate(currPlayer.matrix, direction);
     while (Game.collide(arena, currPlayer)) {
         currPlayer.pos.x += offset;
         offset = -(offset + (offset > 0 ? 1 : -1));
         if (offset > currPlayer.matrix[0].length) {
-            rotate(currPlayer.matrix, -direction);
+            currPlayer.matrix = rotate(currPlayer.matrix, -direction);
             currPlayer.pos.x = initPosition;
             return;
         }
@@ -50,17 +50,26 @@ export function instantDrop(arena: number[][], player: player) {
     }
 }
 
-function rotate(matrix: number[][], direction: number) {
-    for (let y = 0; y < matrix.length; y++) {
-        for (let x = 0; x < y; x++) {
-            [matrix[x][y], matrix[y][x]]
-                = [matrix[y][x], matrix[x][y]]
+function rotate(matrix: number[][], direction: number): number[][] {
+    let newMatrix: number[][] = [];
+
+    if (direction > 0) {
+        for(let y = 0; y < matrix[0].length; y++) {
+            let row: number[] = [];
+            for(let x = matrix.length -1; x >= 0; x--) {
+                row.push(matrix[x][y]);
+            }
+            newMatrix.push(row);
+        }
+    } else {
+        for(let y = matrix[0].length -1; y >= 0; y--) {
+            let row: number[] = [];
+            for(let x = 0; x < matrix.length; x++) {
+                row.push(matrix[x][y]);
+            }
+            newMatrix.push(row);
         }
     }
 
-    if (direction > 0) {
-        matrix.forEach(row => row.reverse());
-    } else {
-        matrix.reverse();
-    }
+    return newMatrix;
 }
