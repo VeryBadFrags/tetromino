@@ -19,7 +19,7 @@ make
 Or build with [Docker](https://www.docker.com)
 
 ```shell
-docker-compose up
+docker-compose up --build
 ```
 
 ## Sources
