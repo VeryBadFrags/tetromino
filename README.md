@@ -11,8 +11,15 @@ A tetromino-based puzzle game made in HTML5 and Typescript.
 
 * Get [Node](https://nodejs.org/)
 * Build with Make
+
 ```shell
 make
+```
+
+Or build with [Docker](https://www.docker.com)
+
+```shell
+docker-compose up
 ```
 
 ## Sources

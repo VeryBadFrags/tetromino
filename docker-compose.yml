@@ -1,0 +1,8 @@
+version: "3.3"
+services:
+  web:
+    image: node:lts-alpine
+    volumes:
+      - .:/src
+    working_dir: /src
+    command: sh -c "npm ci --only=prod --no-optional && npm run build"
