@@ -8,6 +8,7 @@ module.exports = {
             sourceMap: false,
         }],
         ['@snowpack/plugin-typescript'],
+        ["@snowpack/plugin-optimize"],
     ],
     "mount": {
         "src": { url: "/" },
