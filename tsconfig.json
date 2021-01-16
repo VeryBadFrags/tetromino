@@ -3,7 +3,7 @@
         "noImplicitAny": true,
         "lib": ["dom", "es2017"],
         "target": "ES6",
-        "outDir": "dist/"
+        "outDir": "build/"
     },
     "include": ["./src/**/*"],
 }

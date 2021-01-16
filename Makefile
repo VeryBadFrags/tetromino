@@ -1,4 +1,4 @@
-DIST = dist
+DIST = build
 
 .PHONY: generate
 generate: src/* assets/* package.json node_modules/

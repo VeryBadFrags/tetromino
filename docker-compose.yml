@@ -3,6 +3,6 @@ services:
   web:
     build: ./
     volumes:
-      - "./dist:/src/dist"
+      - "./build:/src/build"
     working_dir: /src
     
