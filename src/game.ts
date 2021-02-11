@@ -1,9 +1,9 @@
-import { player } from "./player";
+import { player, GamePiece } from "./player";
 
-const pieces: string = "ILJOTSZ";
+const pieces = "ILJOTSZ";
 let bagOfPieces: string[] = [];
 
-export function collide(gameArena: number[][], piece: any) {
+export function collide(gameArena: number[][], piece: GamePiece): boolean {
     const [m, o] = [piece.matrix, piece.pos];
     for (let y = 0; y < m.length; y++) {
         for (let x = 0; x < m[y].length; x++) {
@@ -17,7 +17,7 @@ export function collide(gameArena: number[][], piece: any) {
     return false;
 }
 
-export function merge(gameArena: number[][], currPlayer: player) {
+export function merge(gameArena: number[][], currPlayer: player): void {
     currPlayer.matrix.forEach((row, y) => {
         row.forEach((value, x) => {
             if (value !== 0) {
@@ -28,7 +28,7 @@ export function merge(gameArena: number[][], currPlayer: player) {
 }
 
 export let nextPiece: number[][];
-export function playerReset(arena: number[][], currPlayer: player) {
+export function playerReset(arena: number[][], currPlayer: player): number[][] {
     if (nextPiece == null) {
         nextPiece = generateNextPiece();
     }
@@ -49,14 +49,14 @@ function generateNextPiece() {
     if (bagOfPieces.length === 0) {
         bagOfPieces = [...pieces];
     }
-    let pieceIndex = bagOfPieces.length * Math.random() | 0;
+    const pieceIndex = bagOfPieces.length * Math.random() | 0;
 
-    let newPiece = createPiece(bagOfPieces[pieceIndex]);
+    const newPiece = createPiece(bagOfPieces[pieceIndex]);
     bagOfPieces.splice(pieceIndex, 1);
     return newPiece;
 }
 
-export function scanArena(arena: number[][], currPlayer: player) {
+export function scanArena(arena: number[][], currPlayer: player): void {
     let rowCount = 1;
     outer: for (let y = arena.length - 1; y >= 0; y--) {
         for (let x = 0; x < arena[y].length; x++) {
@@ -74,8 +74,8 @@ export function scanArena(arena: number[][], currPlayer: player) {
     }
 }
 
-export function generateShadow(arena: number[][], currPlayer: player) {
-    let shadow = {
+export function generateShadow(arena: number[][], currPlayer: player): GamePiece {
+    const shadow = {
         pos: { x: currPlayer.pos.x, y: currPlayer.pos.y },
         matrix: currPlayer.matrix
     };

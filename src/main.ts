@@ -18,9 +18,10 @@ function createMatrix(w: number, h: number) {
 
 const arena = createMatrix(12, 20);
 
+const dropInterval = 1000;
+const dropShortInterval = 70;
+
 let dropTimer = 0;
-let dropInterval = 1000;
-let dropShortInterval = 70;
 let fastDrop = false;
 let lastTime = 0;
 function update(time = 0) {
@@ -28,7 +29,7 @@ function update(time = 0) {
     lastTime = time;
 
     dropTimer += deltaTime;
-    let interval = fastDrop ? dropShortInterval : dropInterval;
+    const interval = fastDrop ? dropShortInterval : dropInterval;
     if (dropTimer > interval) {
         Player.drop(arena, player);
         dropTimer %= interval;
@@ -38,7 +39,7 @@ function update(time = 0) {
         }
     }
 
-    let shadow = Game.generateShadow(arena, player);
+    const shadow = Game.generateShadow(arena, player);
     Engine.draw(arena, player, shadow);
     requestAnimationFrame(update);
 }
@@ -77,7 +78,7 @@ function updateControls() {
 updateControls();
 
 document.addEventListener('keydown', event => {
-    let keyUpper = event.key.toUpperCase();
+    const keyUpper = event.key.toUpperCase();
     if (controls.left.includes(keyUpper)) {
         Player.move(arena, player, -1);
     } else if (controls.right.includes(keyUpper)) {
@@ -98,7 +99,7 @@ document.addEventListener('keydown', event => {
 });
 
 document.addEventListener('keyup', event => {
-    let keyUpper = event.key.toUpperCase();
+    const keyUpper = event.key.toUpperCase();
     if (controls.down.includes(keyUpper)) {
         fastDrop = false;
     }

@@ -7,14 +7,19 @@ export interface player {
     score: number;
 }
 
-export function move(arena: number[][], currPlayer: player, direction: number) {
+export interface GamePiece {
+    pos: { x: number, y: number };
+    matrix: number[][];
+}
+
+export function move(arena: number[][], currPlayer: player, direction: number): void {
     currPlayer.pos.x += direction;
     if (Game.collide(arena, currPlayer)) {
         currPlayer.pos.x -= direction;
     }
 }
 
-export function playerRotate(arena: number[][], currPlayer: player, direction: number) {
+export function playerRotate(arena: number[][], currPlayer: player, direction: number): void {
     const initPosition = currPlayer.pos.x;
     let offset = 1;
     currPlayer.matrix = rotate(currPlayer.matrix, direction);
@@ -29,7 +34,7 @@ export function playerRotate(arena: number[][], currPlayer: player, direction: n
     }
 }
 
-export function drop(arena: number[][], currPlayer: player) {
+export function drop(arena: number[][], currPlayer: player): boolean {
     currPlayer.pos.y++;
     if (Game.collide(arena, currPlayer)) {
         currPlayer.pos.y--;
@@ -43,7 +48,7 @@ export function drop(arena: number[][], currPlayer: player) {
     return false;
 }
 
-export function instantDrop(arena: number[][], player: player) {
+export function instantDrop(arena: number[][], player: player): void {
     while (!drop(arena, player)) {
         player.score += 2;
         Engine.updateScore(player);
@@ -51,11 +56,11 @@ export function instantDrop(arena: number[][], player: player) {
 }
 
 function rotate(matrix: number[][], direction: number): number[][] {
-    let newMatrix: number[][] = [];
+    const newMatrix: number[][] = [];
 
     if (direction > 0) {
         for(let y = 0; y < matrix[0].length; y++) {
-            let row: number[] = [];
+            const row: number[] = [];
             for(let x = matrix.length -1; x >= 0; x--) {
                 row.push(matrix[x][y]);
             }
@@ -63,7 +68,7 @@ function rotate(matrix: number[][], direction: number): number[][] {
         }
     } else {
         for(let y = matrix[0].length -1; y >= 0; y--) {
-            let row: number[] = [];
+            const row: number[] = [];
             for(let x = 0; x < matrix.length; x++) {
                 row.push(matrix[x][y]);
             }
