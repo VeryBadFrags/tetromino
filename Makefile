@@ -6,8 +6,8 @@ generate: src/* assets/* package.json node_modules/
 	@echo 'Generated Blocks site into: ${BUILD}/'
 
 node_modules/: package.json
-	npm i --only=prod --no-optional
+	npm i --only=prod
 
 .PHONY: clean
 clean:
-	rm -rf ${BUILD}/
+	rm -rf ${BUILD}/ node_modules/
