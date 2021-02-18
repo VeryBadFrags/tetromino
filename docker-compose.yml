@@ -1,8 +1,0 @@
-version: "3.3"
-services:
-  web:
-    build: .
-    volumes:
-      - "./build:/src/build"
-    working_dir: /src
-    
