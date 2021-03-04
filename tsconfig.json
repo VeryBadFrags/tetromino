@@ -1,8 +1,7 @@
 {
     "compilerOptions": {
         "noImplicitAny": true,
-        "lib": ["dom", "es2017"],
-        "target": "ES6",
+        "target": "ES2017",
         "outDir": "build/"
     },
     "include": ["./src/**/*"],
