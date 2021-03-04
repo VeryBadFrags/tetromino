@@ -27,7 +27,11 @@ const colors = [
   "#ef5350", // Z red
 ];
 
-export function draw(arena: number[][], currPlayer: player, shadow: GamePiece): void {
+export function draw(
+  arena: number[][],
+  currPlayer: player,
+  shadow: GamePiece
+): void {
   //context.fillStyle = '#263238';
   context.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -54,7 +58,7 @@ const blockPaddingFactor = 0.9;
 function drawMatrix(
   ctx: CanvasRenderingContext2D,
   piece: number[][],
-  offset: { x: number, y: number },
+  offset: { x: number; y: number },
   hollow = false
 ) {
   const paddedBlock = blockWidth * blockPaddingFactor;
