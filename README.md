@@ -10,9 +10,9 @@ A tetromino-based puzzle game made in HTML5 and TypeScript.
 ## Build
 
 - Install [Node](https://nodejs.org/)
-- Build with make
+- Build 
   ```sh
-  make
+  npm run build
   ```
 
 ## Links
