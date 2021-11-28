@@ -1,4 +1,4 @@
-import { player, GamePiece } from "./player";
+import { Player, GamePiece } from "./player";
 
 const canvas: HTMLCanvasElement = <HTMLCanvasElement>(
   document.getElementById("game")
@@ -29,7 +29,7 @@ const colors = [
 
 export function draw(
   arena: number[][],
-  currPlayer: player,
+  currPlayer: Player,
   shadow: GamePiece
 ): void {
   //context.fillStyle = '#263238';
@@ -49,7 +49,7 @@ export function drawNextPiece(nextPiece: number[][]): void {
   drawNextPieceMatrix(nextPieceContext, nextPiece);
 }
 
-export function updateScore(currPlayer: player): void {
+export function updateScore(currPlayer: Player): void {
   document.getElementById("score").innerText = currPlayer.score.toString();
 }
 

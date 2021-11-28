@@ -1,7 +1,7 @@
 import * as Game from './game.js';
 import * as Engine from './engine.js';
 
-export interface player {
+export interface Player {
     pos: { x: number, y: number };
     matrix: number[][];
     score: number;
@@ -12,14 +12,14 @@ export interface GamePiece {
     matrix: number[][];
 }
 
-export function move(arena: number[][], currPlayer: player, direction: number): void {
+export function move(arena: number[][], currPlayer: Player, direction: number): void {
     currPlayer.pos.x += direction;
     if (Game.collide(arena, currPlayer)) {
         currPlayer.pos.x -= direction;
     }
 }
 
-export function playerRotate(arena: number[][], currPlayer: player, direction: number): void {
+export function playerRotate(arena: number[][], currPlayer: Player, direction: number): void {
     const initPosition = currPlayer.pos.x;
     let offset = 1;
     currPlayer.matrix = rotate(currPlayer.matrix, direction);
@@ -34,7 +34,7 @@ export function playerRotate(arena: number[][], currPlayer: player, direction: n
     }
 }
 
-export function drop(arena: number[][], currPlayer: player): boolean {
+export function drop(arena: number[][], currPlayer: Player): boolean {
     currPlayer.pos.y++;
     if (Game.collide(arena, currPlayer)) {
         currPlayer.pos.y--;
@@ -48,7 +48,7 @@ export function drop(arena: number[][], currPlayer: player): boolean {
     return false;
 }
 
-export function instantDrop(arena: number[][], player: player): void {
+export function instantDrop(arena: number[][], player: Player): void {
     while (!drop(arena, player)) {
         player.score += 2;
         Engine.updateScore(player);
