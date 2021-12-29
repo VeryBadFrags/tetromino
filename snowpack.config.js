@@ -4,18 +4,18 @@
 /** @type {import("snowpack").SnowpackUserConfig } */
 module.exports = {
   mount: {
-    src: { url: "/" },
-    assets: { url: "/", static: true },
+    src: { url: '/' },
+    assets: { url: '/', static: true }
   },
   plugins: [
     [
-      "@snowpack/plugin-sass",
+      '@snowpack/plugin-sass',
       {
-        style: "compressed",
-        sourceMap: false,
-      },
+        style: 'compressed',
+        sourceMap: false
+      }
     ],
-    ["@snowpack/plugin-typescript"],
-    ["@snowpack/plugin-optimize"],
-  ],
-};
+    ['@snowpack/plugin-typescript'],
+    ['@snowpack/plugin-optimize']
+  ]
+}
