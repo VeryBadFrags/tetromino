@@ -131,4 +131,5 @@ function createPiece (type: string): number[][] {
       [0, 7, 7]
     ]
   }
+  return []
 }

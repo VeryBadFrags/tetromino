@@ -5,16 +5,14 @@ const context: CanvasRenderingContext2D = canvas.getContext('2d') as CanvasRende
 
 const nextPieceCanvas: HTMLCanvasElement = document.getElementById('nextPiece') as HTMLCanvasElement
 
-const nextPieceContext: CanvasRenderingContext2D = nextPieceCanvas.getContext(
-  '2d'
-)
+const nextPieceContext: CanvasRenderingContext2D = nextPieceCanvas.getContext('2d') as CanvasRenderingContext2D
 
 const background = '#263238'
 
 canvas.tabIndex = 1
 
 const colors = [
-  null,
+  '',
   '#AB47BC', // T purple
   '#FFEE58', // O yellow
   '#FB8C00', // L orange
@@ -47,7 +45,10 @@ export function drawNextPiece (nextPiece: number[][]): void {
 }
 
 export function updateScore (currPlayer: Player): void {
-  document.getElementById('score').innerText = currPlayer.score.toString()
+  const scoreElement = document.getElementById('score')
+  if (scoreElement != null) {
+    scoreElement.textContent = currPlayer.score.toString()
+  }
 }
 
 const blockWidth = canvas.height / 20
