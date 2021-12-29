@@ -1,13 +1,10 @@
 import { Player, GamePiece } from './player'
 
-const canvas: HTMLCanvasElement = <HTMLCanvasElement>(
-  document.getElementById('game')
-)
-const context: CanvasRenderingContext2D = canvas.getContext('2d')
+const canvas: HTMLCanvasElement = document.getElementById('game') as HTMLCanvasElement
+const context: CanvasRenderingContext2D = canvas.getContext('2d') as CanvasRenderingContext2D
 
-const nextPieceCanvas: HTMLCanvasElement = <HTMLCanvasElement>(
-  document.getElementById('nextPiece')
-)
+const nextPieceCanvas: HTMLCanvasElement = document.getElementById('nextPiece') as HTMLCanvasElement
+
 const nextPieceContext: CanvasRenderingContext2D = nextPieceCanvas.getContext(
   '2d'
 )
@@ -60,7 +57,7 @@ function drawMatrix (
   piece: number[][],
   offset: { x: number, y: number },
   hollow = false
-) {
+): void {
   const paddedBlock = blockWidth * blockPaddingFactor
 
   piece.forEach((row, y) => {
@@ -98,7 +95,7 @@ function fillRectangle (
   y: number,
   blockSize: number,
   actualSize: number
-) {
+): void {
   ctx.fillRect(
     x * blockSize + (blockSize - actualSize) / 2,
     y * blockSize + (blockSize - actualSize) / 2,
@@ -108,7 +105,7 @@ function fillRectangle (
 }
 
 const nextPieceOffset = 2
-function drawNextPieceMatrix (ctx: CanvasRenderingContext2D, piece: number[][]) {
+function drawNextPieceMatrix (ctx: CanvasRenderingContext2D, piece: number[][]): void {
   piece.forEach((row, y) => {
     row.forEach((value, x) => {
       if (value !== 0) {
