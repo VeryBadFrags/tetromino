@@ -46,7 +46,7 @@ export function playerReset (arena: number[][], currPlayer: Player): number[][] 
   return nextPiece
 }
 
-function generateNextPiece () {
+function generateNextPiece (): number[][] {
   if (bagOfPieces.length === 0) {
     bagOfPieces = [...pieces]
   }

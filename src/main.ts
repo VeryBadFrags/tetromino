@@ -8,10 +8,12 @@ const player: Player.Player = {
   score: 0
 }
 
-function createMatrix (w: number, h: number) {
+function createMatrix (w: number, h: number): number[][] {
   const matrix = []
-  while (h--) {
+  let counter = h
+  while (counter > 0) {
     matrix.push(new Array(w).fill(0))
+    counter--
   }
   return matrix
 }
@@ -24,7 +26,7 @@ const dropShortInterval = 70
 let dropTimer = 0
 let fastDrop = false
 let lastTime = 0
-function update (time = 0) {
+function update (time = 0): void {
   const deltaTime = time - lastTime
   lastTime = time
 
@@ -67,7 +69,7 @@ document.getElementById('azerty').addEventListener('click', () => {
   updateControls()
 })
 
-function updateControls () {
+function updateControls (): void {
   document.getElementById('controlsLeft').innerText = controls.left.join(', ')
   document.getElementById('controlsRight').innerText = controls.right.join(', ')
   document.getElementById('controlsUp').innerText = controls.up.join(', ')
