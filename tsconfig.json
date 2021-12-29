@@ -2,7 +2,8 @@
     "compilerOptions": {
         "noImplicitAny": true,
         "target": "ES2017",
-        "outDir": "build/"
+        "outDir": "build/",
+        "strict": true
     },
     "include": ["./src/**/*"],
 }
