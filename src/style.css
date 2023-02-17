@@ -1,22 +1,17 @@
-$linkColorDark: complement(#03a9f4);
-$transparentBlack: rgba(black, 0.3);
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   background-color: #212121;
   color: #fafafa;
   font-family: sans-serif;
   text-align: center;
 }
-
 a {
-  color: $linkColorDark;
-  text-shadow: 1px 1px 2px $transparentBlack;
+  color: #f44e03;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .flex {
@@ -25,23 +20,19 @@ a {
   flex-wrap: wrap;
   justify-content: center;
 }
-
 .container {
   margin: 10px;
   font-size: 2em;
 }
-
 .footer {
   padding: 2rem;
 }
-
 #game {
   background: radial-gradient(#263238, #000);
   border: solid 0.2em #eceff1;
   height: 85vh;
   margin-bottom: 1em;
 }
-
 #nextPiece {
   border: solid 0.1em #eceff1;
   width: 100%;
