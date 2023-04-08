@@ -3,7 +3,7 @@ import * as Game from "./game.js";
 import * as Engine from "./engine.js";
 
 import Plausible from "plausible-tracker";
-const plausible = Plausible({
+Plausible({
   domain: "blocks.verybadfrags.com",
   apiHost: "https://stats.verybadfrags.com",
 });
