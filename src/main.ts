@@ -2,6 +2,13 @@ import * as Player from "./player.js";
 import * as Game from "./game.js";
 import * as Engine from "./engine.js";
 
+import Plausible from "plausible-tracker";
+const plausible = Plausible({
+  domain: "blocks.verybadfrags.com",
+  apiHost: "https://stats.verybadfrags.com",
+});
+plausible.trackPageview();
+
 const player: Player.Player = {
   pos: { x: 0, y: 0 },
   matrix: [],
