@@ -7,7 +7,6 @@ const plausible = Plausible({
   domain: "blocks.verybadfrags.com",
   apiHost: "https://stats.verybadfrags.com",
 });
-plausible.trackPageview();
 
 const player: Player.Player = {
   pos: { x: 0, y: 0 },
