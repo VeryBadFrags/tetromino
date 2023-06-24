@@ -8,6 +8,8 @@ A tetromino-based puzzle game made in HTML5 and TypeScript.
 
 [▶️ Play the game](https://blocks.verybadfrags.com/)
 
+![Game screenshot](./public/tetromino01.png)
+
 ## Build
 
 - Get [Node](https://nodejs.org/) and install dependencies
