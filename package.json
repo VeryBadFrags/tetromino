@@ -1,5 +1,5 @@
 {
-  "name": "blocks",
+  "name": "tetromino",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/VeryBadFrags/blocks.git"
+    "url": "git+https://github.com/VeryBadFrags/tetromino.git"
   },
   "author": "VeryBadFrags",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/VeryBadFrags/blocks/issues"
+    "url": "https://github.com/VeryBadFrags/tetromino/issues"
   },
-  "homepage": "https://github.com/VeryBadFrags/blocks#readme",
+  "homepage": "https://github.com/VeryBadFrags/tetromino#readme",
   "dependencies": {
     "plausible-tracker": "^0.3.8",
     "typescript": "^4.6.3",

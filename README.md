@@ -1,4 +1,4 @@
-# Blocks
+# Tetromino
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/72866b1c-d0fc-4e33-b4a1-d9ce2b418547/deploy-status)](https://app.netlify.com/sites/quirky-poitras-7ec457/deploys)
 
