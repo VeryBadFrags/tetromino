@@ -7,7 +7,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "format": "prettier --write .",
-    "clean": "rm -rf build/"
+    "clean": "rm -rf dist/"
   },
   "repository": {
     "type": "git",
