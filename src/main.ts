@@ -4,7 +4,9 @@ import * as Engine from "./engine.js";
 
 import Plausible from "plausible-tracker";
 const plausible = Plausible({
-  domain: "blocks.verybadfrags.com",
+  domain: "tetromino.verybadfrags.com",
+  apiHost: "/ps",
+  hashMode: false,
 });
 plausible.trackPageview();
 
