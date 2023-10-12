@@ -12,16 +12,10 @@ A tetromino-based puzzle game made in HTML5 and TypeScript.
 
 ## Build
 
-- Get [Node](https://nodejs.org/) and install dependencies
+- Run locally
 
   ```sh
-  npm i
-  ```
-
-- Build
-
-  ```sh
-  npm run build
+  make dev
   ```
 
 ## Links
