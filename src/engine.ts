@@ -74,7 +74,7 @@ function drawMatrix(
       if (value !== 0) {
         ctx.fillStyle = colors[value];
         // context.globalAlpha = 0.9;
-        // // Transparent outter rectangle
+        // // Transparent outer rectangle
         // fillRectangle(ctx, x + offset.x, y + offset.y, blockWidth, paddedBlock);
 
         // context.globalAlpha = 1.0;
