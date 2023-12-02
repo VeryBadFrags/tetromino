@@ -7,7 +7,10 @@ A tetromino-based puzzle game made in HTML5 and TypeScript.
 
 [▶️ Play the game](https://blocks.verybadfrags.com/)
 
-![Game screenshot](./docs/tetromino01.png)
+<details>
+<summary>🖥️ Game screenshot</summary>
+<img src="./docs/tetromino01.png"/>
+</details>
 
 ## Run locally
 
