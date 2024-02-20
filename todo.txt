@@ -1,5 +1,0 @@
-Bank a piece and show the piece on the left
-Turn off music
-Turn off piece shadow
-Turn off piece preview
-Save settings to cookie
