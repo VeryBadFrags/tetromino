@@ -25,7 +25,7 @@ lint: node_modules
 	pnpm run lint
 
 .PHONY: format
-format:
+format: node_modules
 	pnpm run format
 
 .PHONY: clean
