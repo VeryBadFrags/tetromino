@@ -61,13 +61,8 @@ function generateNextPiece(): number[][] {
 export function scanArena(arena: number[][], currPlayer: Player): void {
   let rowCount = 1;
   for (let y = arena.length - 1; y >= 0; y--) {
-    let completedRow = true;
-    for (const cell of arena[y]) {
-      if (cell === 0) {
-        completedRow = false;
-        break;
-      }
-    }
+    // Look for a 0 in the row, indicating that the row in incomplete
+    const completedRow = arena[y].indexOf(0) < 0;
 
     if (completedRow) {
       const row = arena.splice(y, 1)[0].fill(0);
