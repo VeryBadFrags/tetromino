@@ -1,4 +1,4 @@
-import { Player, GamePiece } from "./player";
+import { Player, GamePiece } from "./player.ts";
 
 const pieces = "ILJOTSZ";
 let bagOfPieces: string[] = [];

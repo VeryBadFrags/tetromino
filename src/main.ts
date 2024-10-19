@@ -1,6 +1,6 @@
-import * as Player from "./player.js";
-import * as Game from "./game.js";
-import * as Engine from "./engine.js";
+import * as Player from "./player.ts";
+import * as Game from "./game.ts";
+import * as Engine from "./engine.ts";
 
 import Plausible from "plausible-tracker";
 const plausible = Plausible({
