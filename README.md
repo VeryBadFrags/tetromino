@@ -9,22 +9,15 @@ A tetromino-based puzzle game made in HTML5 and TypeScript.
 
 <details>
 <summary>🖥️ Game screenshot</summary>
-<img src="./docs/tetromino01.png"/>
+<img src="./docs/tetromino01.png" alt="Game screenshot"/>
 </details>
 
 ## Run locally
 
-### With [pnpm](https://pnpm.io)
+Install [Deno](https://deno.com)
 
 ```sh
 make dev
-```
-
-### With [npm](https://www.npmjs.com)
-
-```sh
-npm i
-npm run dev
 ```
 
 ## Links

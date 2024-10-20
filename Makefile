@@ -5,33 +5,34 @@
 .PHONY: help
 help:
 	@echo "Available targets:"
-	@echo "  make build   - Run build"
-	@echo "  make dev     - Run dev"
-	@echo "  make lint    - Run eslint"
-	@echo "  make format  - Format code using Prettier"
+	@echo "  make dev     - Run in development mode"
+	@echo "  make preview - Preview the production site"
+	@echo "  make build   - Build the static site"
+	@echo "  make lint    - Lint the code"
+	@echo "  make format  - Format the code"
 	@echo "  make clean   - Clean up project"
 	@echo "  make help    - Display this help message"
 
-.PHONY: build
-build: node_modules
-	pnpm build
-
 .PHONY: dev
-dev: node_modules
-	pnpm dev
+dev: 
+	deno task dev
+
+.PHONY: preview
+preview: 
+	deno task preview
+
+.PHONY: build
+build:
+	deno task build
 
 .PHONY: lint
-lint: node_modules
-	pnpm run lint
+lint:
+	deno lint
 
 .PHONY: format
-format: node_modules
-	pnpm run format
+format:
+	deno fmt
 
 .PHONY: clean
 clean:
-	pnpm run clean
-
-# Install dependencies if 'node_modules' is missing
-node_modules: pnpm-lock.yaml
-	pnpm install
+	rm -rf dist/

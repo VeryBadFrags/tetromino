@@ -1,4 +1,4 @@
-import { Player, GamePiece } from "./player";
+import { GamePiece, Player } from "./player.ts";
 
 const pieces = "ILJOTSZ";
 let bagOfPieces: string[] = [];
@@ -36,8 +36,8 @@ export function playerReset(arena: number[][], currPlayer: Player): number[][] {
 
   currPlayer.matrix = nextPiece;
   currPlayer.pos.y = 0;
-  currPlayer.pos.x =
-    ((arena[0].length / 2) | 0) - ((currPlayer.matrix[0].length / 2) | 0);
+  currPlayer.pos.x = ((arena[0].length / 2) | 0) -
+    ((currPlayer.matrix[0].length / 2) | 0);
   if (collide(arena, currPlayer)) {
     arena.forEach((row) => row.fill(0));
     currPlayer.score = 0;
@@ -77,7 +77,7 @@ export function scanArena(arena: number[][], currPlayer: Player): void {
 
 export function generateShadow(
   arena: number[][],
-  currPlayer: Player
+  currPlayer: Player,
 ): GamePiece {
   const shadow = {
     pos: { x: currPlayer.pos.x, y: currPlayer.pos.y },

@@ -1,6 +1,6 @@
-import * as Player from "./player.js";
-import * as Game from "./game.js";
-import * as Engine from "./engine.js";
+import * as Player from "./player.ts";
+import * as Game from "./game.ts";
+import * as Engine from "./engine.ts";
 
 import Plausible from "plausible-tracker";
 const plausible = Plausible({
@@ -81,18 +81,21 @@ function updateControls(): void {
   const controlsLeft = document.getElementById("controlsLeft");
   if (controlsLeft != null) controlsLeft.textContent = controls.left.join(", ");
   const controlsRight = document.getElementById("controlsRight");
-  if (controlsRight != null)
+  if (controlsRight != null) {
     controlsRight.textContent = controls.right.join(", ");
+  }
   const controlsUp = document.getElementById("controlsUp");
   if (controlsUp != null) controlsUp.textContent = controls.up.join(", ");
   const controlsDown = document.getElementById("controlsDown");
   if (controlsDown != null) controlsDown.textContent = controls.down.join(", ");
   const controlsRLeft = document.getElementById("controlsRLeft");
-  if (controlsRLeft != null)
+  if (controlsRLeft != null) {
     controlsRLeft.textContent = controls.rotateLeft.join(", ");
+  }
   const controlsRRight = document.getElementById("controlsRRight");
-  if (controlsRRight != null)
+  if (controlsRRight != null) {
     controlsRRight.textContent = controls.rotateRight.join(", ");
+  }
 }
 updateControls();
 

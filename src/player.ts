@@ -1,5 +1,5 @@
-import * as Game from "./game.js";
-import * as Engine from "./engine.js";
+import * as Game from "./game.ts";
+import * as Engine from "./engine.ts";
 
 export interface Player {
   pos: { x: number; y: number };
@@ -15,7 +15,7 @@ export interface GamePiece {
 export function move(
   arena: number[][],
   currPlayer: Player,
-  direction: number
+  direction: number,
 ): void {
   currPlayer.pos.x += direction;
   if (Game.collide(arena, currPlayer)) {
@@ -26,7 +26,7 @@ export function move(
 export function playerRotate(
   arena: number[][],
   currPlayer: Player,
-  direction: number
+  direction: number,
 ): void {
   const initPosition = currPlayer.pos.x;
   let offset = 1;
