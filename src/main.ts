@@ -81,18 +81,21 @@ function updateControls(): void {
   const controlsLeft = document.getElementById("controlsLeft");
   if (controlsLeft != null) controlsLeft.textContent = controls.left.join(", ");
   const controlsRight = document.getElementById("controlsRight");
-  if (controlsRight != null)
+  if (controlsRight != null) {
     controlsRight.textContent = controls.right.join(", ");
+  }
   const controlsUp = document.getElementById("controlsUp");
   if (controlsUp != null) controlsUp.textContent = controls.up.join(", ");
   const controlsDown = document.getElementById("controlsDown");
   if (controlsDown != null) controlsDown.textContent = controls.down.join(", ");
   const controlsRLeft = document.getElementById("controlsRLeft");
-  if (controlsRLeft != null)
+  if (controlsRLeft != null) {
     controlsRLeft.textContent = controls.rotateLeft.join(", ");
+  }
   const controlsRRight = document.getElementById("controlsRRight");
-  if (controlsRRight != null)
+  if (controlsRRight != null) {
     controlsRRight.textContent = controls.rotateRight.join(", ");
+  }
 }
 updateControls();
 

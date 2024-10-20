@@ -1,18 +1,18 @@
-import { Player, GamePiece } from "./player.ts";
+import { GamePiece, Player } from "./player.ts";
 
 const canvas: HTMLCanvasElement = document.getElementById(
-  "game"
+  "game",
 ) as HTMLCanvasElement;
 const context: CanvasRenderingContext2D = canvas.getContext(
-  "2d"
+  "2d",
 ) as CanvasRenderingContext2D;
 
 const nextPieceCanvas: HTMLCanvasElement = document.getElementById(
-  "nextPiece"
+  "nextPiece",
 ) as HTMLCanvasElement;
 
 const nextPieceContext: CanvasRenderingContext2D = nextPieceCanvas.getContext(
-  "2d"
+  "2d",
 ) as CanvasRenderingContext2D;
 
 const background = "#263238";
@@ -33,7 +33,7 @@ const colors = [
 export function draw(
   arena: number[][],
   currPlayer: Player,
-  shadow: GamePiece
+  shadow: GamePiece,
 ): void {
   // context.fillStyle = '#263238';
   context.clearRect(0, 0, canvas.width, canvas.height);
@@ -65,7 +65,7 @@ function drawMatrix(
   ctx: CanvasRenderingContext2D,
   piece: number[][],
   offset: { x: number; y: number },
-  hollow = false
+  hollow = false,
 ): void {
   const paddedBlock = blockWidth * blockPaddingFactor;
 
@@ -90,7 +90,7 @@ function drawMatrix(
             (x + offset.x) * blockWidth + bOffset,
             (y + offset.y) * blockWidth + bOffset,
             actualSize,
-            actualSize
+            actualSize,
           );
         }
       }
@@ -103,31 +103,31 @@ function fillRectangle(
   x: number,
   y: number,
   blockSize: number,
-  actualSize: number
+  actualSize: number,
 ): void {
   ctx.fillRect(
     x * blockSize + (blockSize - actualSize) / 2,
     y * blockSize + (blockSize - actualSize) / 2,
     actualSize,
-    actualSize
+    actualSize,
   );
 }
 
 const nextPieceOffset = 2;
 function drawNextPieceMatrix(
   ctx: CanvasRenderingContext2D,
-  piece: number[][]
+  piece: number[][],
 ): void {
   piece.forEach((row, y) => {
     row.forEach((value, x) => {
       if (value !== 0) {
-        const nextPieceBlockWidth =
-          nextPieceCanvas.width / (row.length + nextPieceOffset);
-        const nextPieceBlockHeight =
-          nextPieceCanvas.height / (piece.length + nextPieceOffset);
+        const nextPieceBlockWidth = nextPieceCanvas.width /
+          (row.length + nextPieceOffset);
+        const nextPieceBlockHeight = nextPieceCanvas.height /
+          (piece.length + nextPieceOffset);
         const nextPieceBlockSize = Math.min(
           nextPieceBlockWidth,
-          nextPieceBlockHeight
+          nextPieceBlockHeight,
         );
 
         ctx.fillStyle = colors[value];
@@ -135,7 +135,7 @@ function drawNextPieceMatrix(
           (x + nextPieceOffset / 2) * nextPieceBlockSize,
           (y + nextPieceOffset / 2) * nextPieceBlockSize,
           nextPieceBlockSize * blockPaddingFactor,
-          nextPieceBlockSize * blockPaddingFactor
+          nextPieceBlockSize * blockPaddingFactor,
         );
       }
     });
