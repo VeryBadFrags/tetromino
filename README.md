@@ -5,10 +5,10 @@
 
 A tetromino-based puzzle game made in HTML5 and TypeScript.
 
-[▶️ Play the game](https://blocks.verybadfrags.com/)
+[▶️ Play the game](https://tetromino.verybadfrags.com/)
 
 <details>
-<summary>🖥️ Game screenshot</summary>
+<summary>🖼️ Screenshot</summary>
 <img src="./docs/tetromino01.png" alt="Game screenshot"/>
 </details>
 
