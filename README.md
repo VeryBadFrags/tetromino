@@ -9,7 +9,7 @@ A tetromino-based puzzle game made in HTML5 and TypeScript.
 
 <details>
 <summary>🖥️ Game screenshot</summary>
-<img src="./docs/tetromino01.png"/>
+<img src="./docs/tetromino01.png" alt="Game screenshot"/>
 </details>
 
 ## Run locally
