@@ -121,10 +121,10 @@ function drawNextPieceMatrix(
   piece.forEach((row, y) => {
     row.forEach((value, x) => {
       if (value !== 0) {
-        const nextPieceBlockWidth = nextPieceCanvas.width /
-          (row.length + nextPieceOffset);
-        const nextPieceBlockHeight = nextPieceCanvas.height /
-          (piece.length + nextPieceOffset);
+        const nextPieceBlockWidth =
+          nextPieceCanvas.width / (row.length + nextPieceOffset);
+        const nextPieceBlockHeight =
+          nextPieceCanvas.height / (piece.length + nextPieceOffset);
         const nextPieceBlockSize = Math.min(
           nextPieceBlockWidth,
           nextPieceBlockHeight,
