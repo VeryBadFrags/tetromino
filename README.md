@@ -14,7 +14,15 @@ A tetromino-based puzzle game made in HTML5 and TypeScript.
 
 ## Run locally
 
-Install [Deno](https://deno.com)
+### Setup
+
+Enable corepack
+
+```sh
+corepack enable
+```
+
+### Run
 
 ```sh
 make dev

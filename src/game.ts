@@ -36,8 +36,8 @@ export function playerReset(arena: number[][], currPlayer: Player): number[][] {
 
   currPlayer.matrix = nextPiece;
   currPlayer.pos.y = 0;
-  currPlayer.pos.x = ((arena[0].length / 2) | 0) -
-    ((currPlayer.matrix[0].length / 2) | 0);
+  currPlayer.pos.x =
+    ((arena[0].length / 2) | 0) - ((currPlayer.matrix[0].length / 2) | 0);
   if (collide(arena, currPlayer)) {
     arena.forEach((row) => row.fill(0));
     currPlayer.score = 0;
