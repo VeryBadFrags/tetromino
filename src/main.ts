@@ -2,14 +2,6 @@ import * as Player from "./player.ts";
 import * as Game from "./game.ts";
 import * as Engine from "./engine.ts";
 
-import Plausible from "plausible-tracker";
-const plausible = Plausible({
-  domain: "tetromino.verybadfrags.com",
-  apiHost: "/ps",
-  hashMode: false,
-});
-plausible.trackPageview();
-
 const player: Player.Player = {
   pos: { x: 0, y: 0 },
   matrix: [],
