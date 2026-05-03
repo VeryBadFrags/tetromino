@@ -92,6 +92,7 @@ function updateControls(): void {
 updateControls();
 
 document.addEventListener("keydown", (event) => {
+  event.preventDefault();
   const keyUpper = event.key.toUpperCase();
   if (controls.left.includes(keyUpper)) {
     Player.move(arena, player, -1);
@@ -108,8 +109,6 @@ document.addEventListener("keydown", (event) => {
   } else {
     return true;
   }
-  event.preventDefault();
-  return false;
 });
 
 document.addEventListener("keyup", (event) => {
