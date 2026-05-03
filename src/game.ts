@@ -1,4 +1,4 @@
-import { GamePiece, Player } from "./player.ts";
+import type { GamePiece, Player } from "./player.ts";
 
 const pieces = "ILJOTSZ";
 let bagOfPieces: string[] = [];
@@ -39,7 +39,7 @@ export function playerReset(arena: number[][], currPlayer: Player): number[][] {
 	currPlayer.pos.x =
 		((arena[0].length / 2) | 0) - ((currPlayer.matrix[0].length / 2) | 0);
 	if (collide(arena, currPlayer)) {
-		arena.forEach((row) => row.fill(0));
+		arena.forEach((row) => void row.fill(0));
 		currPlayer.score = 0;
 	}
 	nextPiece = generateNextPiece();

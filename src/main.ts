@@ -1,6 +1,6 @@
-import * as Player from "./player.ts";
-import * as Game from "./game.ts";
 import * as Engine from "./engine.ts";
+import * as Game from "./game.ts";
+import * as Player from "./player.ts";
 
 const player: Player.Player = {
 	pos: { x: 0, y: 0 },

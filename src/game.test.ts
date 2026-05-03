@@ -1,5 +1,5 @@
-import { describe, it, expect, beforeEach } from "vitest";
-import { collide, merge, scanArena, generateShadow } from "./game.ts";
+import { beforeEach, describe, expect, it } from "vitest";
+import { collide, generateShadow, merge, scanArena } from "./game.ts";
 import type { Player } from "./player.ts";
 
 function makeArena(width: number, height: number): number[][] {

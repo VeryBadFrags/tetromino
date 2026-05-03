@@ -1,5 +1,5 @@
-import * as Game from "./game.ts";
 import * as Engine from "./engine.ts";
+import * as Game from "./game.ts";
 
 export interface Player {
 	pos: { x: number; y: number };

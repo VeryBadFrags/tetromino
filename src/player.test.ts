@@ -1,4 +1,4 @@
-import { vi, describe, it, expect } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import type { Player } from "./player.ts";
 
 // engine.ts touches the DOM at import time, so mock it before importing player.ts

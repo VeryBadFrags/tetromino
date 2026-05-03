@@ -1,4 +1,4 @@
-import { GamePiece, Player } from "./player.ts";
+import type { GamePiece, Player } from "./player.ts";
 
 const canvas: HTMLCanvasElement = document.getElementById(
 	"game",
