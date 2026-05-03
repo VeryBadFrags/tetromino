@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "format": "prettier . --write",
-    "lint": "eslint src/"
+    "lint": "eslint src/",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
@@ -16,7 +18,8 @@
     "prettier": "3.5.3",
     "typescript": "~5.7.3",
     "typescript-eslint": "^8.59.1",
-    "vite": "^6.4.2"
+    "vite": "^6.4.2",
+    "vitest": "^4.1.5"
   },
   "packageManager": "pnpm@10.33.2+sha512.a90faf6feeab71ad6c6e57f94e0fe1a12f5dcc22cd754db40ae9593eb6a3e0b6b12e3540218bb37ae083404b1f2ce6db2a4121e979829b4aff94b99f49da1cf8"
 }

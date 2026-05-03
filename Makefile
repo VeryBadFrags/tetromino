@@ -9,6 +9,7 @@ help:
 	@echo "  make build   - Build the static site"
 	@echo "  make format  - Format the code"
 	@echo "  make lint    - Lint the code"
+	@echo "  make test    - Run tests"
 	@echo "  make clean   - Clean up project"
 	@echo "  make help    - Display this help message"
 
@@ -27,6 +28,10 @@ format:
 .PHONY: lint
 lint:
 	pnpm run lint
+
+.PHONY: test
+test:
+	pnpm run test
 
 .PHONY: clean
 clean:
