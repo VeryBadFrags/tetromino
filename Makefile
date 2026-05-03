@@ -14,7 +14,7 @@ help:
 	@echo "  make help    - Display this help message"
 
 .PHONY: dev
-dev: 
+dev:
 	pnpm run dev
 
 .PHONY: build
@@ -28,6 +28,10 @@ format:
 .PHONY: lint
 lint:
 	pnpm run lint
+
+.PHONY: check
+check:
+	pnpm run check
 
 .PHONY: test
 test:
